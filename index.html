@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/themes/south-street/jquery-ui.css" rel="stylesheet">
+    <link href="jquery.signature.css" rel="stylesheet">
+    <style>
+        .kbw-signature { width: 300px; height: 150px; }
+    </style>
+    <!--[if IE]>
+
+    <![endif]-->
+
+
+
+
+
+
+
+</head>
+
+<style type="text/css">
+    .ali{
+        background-color: grey;
+    }
+    .table-editable {
+
+    position: relative;
+}
+.table-editable .glyphicon {
+    font-size: 20px;
+}
+
+.table-remove {
+    color: #700;
+    cursor: pointer;
+}
+.table-remove:hover {
+    color: #f00;
+}
+
+.table-up, .table-down {
+    color: #007;
+    cursor: pointer;
+}
+.table-up:hover, .table-down:hover {
+    color: #00f;
+}
+
+.table-add {
+    color: #070;
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 0;
+}
+.table-add:hover {
+    color: #0b0;
+}
+
+</style>
+<body>
+
+    <!-- Start your project here-->
+
+    <!--Navbar-->
+    <nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <strong>Carcrew</strong>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav1">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link">Delivery Note <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Invoices</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Garages</a>
+                    </li>
+                    <li class="nav-item dropdown btn-group">
+                        <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</a>
+                        <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+                            <a class="dropdown-item">Edit Garage Details</a>
+                            <a class="dropdown-item">Add Garages</a>
+                            <a class="dropdown-item"></a>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline waves-effect waves-light">
+                    <input class="form-control" type="text" placeholder="Search">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!--Start your project here-->
+
+
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-sm-4 offset-2" >
+            <div class="md-form">
+                <input type="text" class="input-alternate" placeholder="Enquiry Number" size="20">
+            </div>
+        </div>
+        <div class="col-sm-3 offset-1" >
+            <div class="md-form">
+
+                    <input type="text" class="input-alternate" placeholder="Dispatch Time" >
+
+                </div>
+            </div>
+        </div>
+    <div class="row">
+
+        <div class="col-sm-4 offset-2" >
+            <div class="md-form">
+                <input type="text" class="input-alternate" placeholder="Garage Name" >
+
+            </div>
+            </div>
+            <div class="col-sm-3 offset-1" >
+                <div class="md-form">
+                    <input type="text" class="input-alternate" placeholder="Garage Number" >
+
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-sm-4 offset-2" >
+            <div class="md-form">
+
+                <input type="text" class="input-alternate" placeholder="Customer Order Number">
+            </div>
+        </div>
+
+        <div class="col-sm-2 offset-2" >
+            <div class="md-form">
+                <input type="date" class="input-alternate">
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+<hr>
+
+    <!--Table goes here-->
+
+
+
+
+
+<div class="col-sm-8 offset-2">
+
+            <div id="table" class="table-editable">
+                <span class="table-add glyphicon glyphicon-plus"></span>
+                <table class="table">
+                    <tr class ="ali">
+                        <th>Line</th>
+                        <th>Car Name</th>
+                        <th>Item Description</th>
+                        <th>Unit of Issue</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                        <th></th>
+
+                    </tr>
+                    <tr>
+                        <td contenteditable="true">Stir Fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td>
+                            <span class="table-remove glyphicon glyphicon-remove"></span>
+                        </td>
+
+                    </tr>
+                    <!-- This is our clonable table line -->
+                    <tr class="hide">
+                        <td contenteditable="true">Stir Fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td contenteditable="true">stir-fry</td>
+                        <td>
+                            <span class="table-remove glyphicon glyphicon-remove"></span>
+                        </td>
+                        <td>
+
+                        </td>
+
+                    </tr>
+                    <tfoot>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Total Price:</th>
+                        <th>40000</th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Shipping Charges</th>
+                        <th>40000</th>
+                    </tr>
+                    <tr class="ali">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Grand Total</th>
+                        <th>40000</th>
+                        <th></th>
+                    </tr>
+                    </tfoot>
+
+
+                </table>
+            </div>
+</div>
+
+        <div class="row">
+
+            <div class="col-sm-4 offset-1" >
+                <div class="md-form">
+                    <input type="text" class="input-alternate" placeholder="Garage Name" >
+
+                </div>
+            </div>
+            <div class="col-sm-4 offset-1" >
+                <div class="md-form">
+                    <input type="text" class="input-alternate" placeholder="Garage Number" >
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 offset-1" >
+                <div class="md-form">
+
+                    <input type="text" class="input-alternate" placeholder="Customer Order Number">
+                </div>
+            </div>
+            <div class="col-sm-10 offset-1" >
+                <div class="md-form">
+
+                </div>
+            </div>
+            <div class="col-sm-2 " >
+                <div class="md-form">
+                </div>
+            </div>
+        </div>
+    <div class="row" id="ali">
+        <div class="col-sm-4 offset-1" >
+            <div class="md-form">
+                <input type="text" class="input-alternate" placeholder="Deliver Boy Name Name" >
+
+            </div>
+        </div>
+        <div class="col-sm-4 offset-1" >
+
+
+            <p>Delivery Guy Signature</p>
+            <div id="sig"></div>
+            <p style="clear: both;"><button id="clear">Clear</button>
+            </p>
+
+
+
+
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-sm-4 offset-1" >
+            <div class="md-form">
+                <input type="text" class="input-alternate" placeholder="Garage Name" >
+
+            </div>
+        </div>
+        <div class="col-sm-4 offset-1" >
+
+
+            <p>Garage Signature</p>
+            <div id="sig1"></div>
+            <p style="clear: both;"><button id="clear1">Clear</button>
+            </p>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <button id="export-btn" class="btn btn-primary">Download PDF</button>
+        <p id="export"></p>
+    </div>
+    <!--Table end Here-->
+
+
+
+
+    <!--Footer-->
+    <footer class="page-footer blue center-on-small-only">
+
+        <!--Footer Links-->
+
+        <!--/.Footer Links-->
+
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © 2017 Copyright: <a href="https://www.MDBootstrap.com"> Carcrew Technology Pvt Ltd </a>
+
+            </div>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--/Start your project here-->
+
+    <!-- /Start your project here-->
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+
+
+
+
+</body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+<script src="jquery.signature.js"></script>
+<script src="https://raw.githubusercontent.com/furf/jquery-ui-touch-punch/master/jquery.ui.touch-punch.min.js"></script>
+<script src="excanvas.js"></script>
+<script>
+    $(function() {
+        jQuery('#sig').signature();
+        jQuery('#clear').click(function() {
+            jQuery('#sig').signature('clear');
+        });
+    });
+    $(function() {
+        jQuery('#sig1').signature();
+        jQuery('#clear1').click(function() {
+            jQuery('#sig1').signature('clear');
+        });
+    });
+
+    jQuery.noConflict();
+</script>
+
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="js/tether.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="javascript">
+
+
+
+
+
+
+
+
+
+    var $TABLE = $('#table');
+    var $BTN = $('#export-btn');
+    var $EXPORT = $('#export');
+
+    $('.table-add').click(function () {
+        var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
+        $TABLE.find('table').append($clone);
+    });
+
+    $('.table-remove').click(function () {
+        $(this).parents('tr').detach();
+    });
+
+    $('.table-up').click(function () {
+        var $row = $(this).parents('tr');
+        if ($row.index() === 1) return; // Don't go above the header
+        $row.prev().before($row.get(0));
+    });
+
+    $('.table-down').click(function () {
+        var $row = $(this).parents('tr');
+        $row.next().after($row.get(0));
+    });
+
+    // A few jQuery helpers for exporting only
+    jQuery.fn.pop = [].pop;
+    jQuery.fn.shift = [].shift;
+
+    $BTN.click(function () {
+        var $rows = $TABLE.find('tr:not(:hidden)');
+        var headers = [];
+        var data = [];
+
+        // Get the headers (add special header logic here)
+        $($rows.shift()).find('th:not(:empty)').each(function () {
+            headers.push($(this).text().toLowerCase());
+        });
+
+        // Turn all existing rows into a loopable array
+        $rows.each(function () {
+            var $td = $(this).find('td');
+            var h = {};
+
+            // Use the headers from earlier to name our hash keys
+            headers.forEach(function (header, i) {
+                h[header] = $td.eq(i).text();
+            });
+
+            data.push(h);
+        });
+
+        // Output the result
+        $EXPORT.text(JSON.stringify(data));
+    });
+</script>
+
+</html>
