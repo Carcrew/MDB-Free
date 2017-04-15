@@ -1,10 +1,372 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    {#    <link href="css/bootstrap.min.css" rel="stylesheet">#}
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    {#    <link href="css/mdb.min.css" rel="stylesheet">#}
+    <link href="{% static "css/mdb.min.css" %}" rel="stylesheet">
+
+    <!-- Your custom styles (optional) -->
+    {#    <link href="css/style.css" rel="stylesheet">#}
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+
+
 </head>
+
+<style type="text/css">
+    .ali{
+        background-color: grey;
+    }
+    .table-editable {
+
+        position: relative;
+    }
+    .table-editable .glyphicon {
+        font-size: 20px;
+    }
+
+    .table-remove {
+        color: #700;
+        cursor: pointer;
+    }
+    .table-remove:hover {
+        color: #f00;
+    }
+
+    .table-up, .table-down {
+        color: #007;
+        cursor: pointer;
+    }
+    .table-up:hover, .table-down:hover {
+        color: #00f;
+    }
+
+    .table-add {
+        color: #070;
+        cursor: pointer;
+        position: absolute;
+        top: 8px;
+        right: 0;
+    }
+    .table-add:hover {
+        color: #0b0;
+    }
+
+</style>
 <body>
 
+<!-- Start your project here-->
+
+<!--Navbar-->
+<nav class="navbar navbar-toggleable-md navbar-dark bg-primary">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+            <strong>Carcrew</strong>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav1">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link">Delivery Note <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Invoices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Garages</a>
+                </li>
+                <li class="nav-item dropdown btn-group">
+                    <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edit</a>
+                    <div class="dropdown-menu dropdown" aria-labelledby="dropdownMenu1">
+                        <a class="dropdown-item">Edit Garage Details</a>
+                        <a class="dropdown-item">Add Garages</a>
+                        <a class="dropdown-item"></a>
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline waves-effect waves-light">
+                <input class="form-control" type="text" placeholder="Search">
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!--Start your project here-->
+
+
+<br>
+<br>
+<div class="row">
+    <form method="get">
+        <div class="col-sm-10 offset-1" >
+            <div class="md-form">
+                <input type="text" class="input-alternate" name="Enquiry_Number" id="Enquiry_Number" placeholder="Enquiry Number" size="20">
+            </div>
+
+        </div>
+        <div class="col-sm-3 offset-1" >
+            <div class="md-form">
+                <button id="export-btn" class="btn btn-primary offset-3 id="onsubmit=""  >Generate Delivery Note</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+
+    <div class="col-sm-3 offset-1" >
+        <div class="md-form">
+            <input type="text" class="input-alternate" placeholder="Garage Name" value="{{ Garage_Name }}" readonly>
+
+        </div>
+    </div>
+    <div class="col-sm-2 offset-1" >
+        <div class="md-form">
+            <input type="text" class="input-alternate" placeholder="Garage Number" value="{{ Garage_Number }}" readonly>
+
+        </div>
+    </div>
+    <div class="col-sm-2 offset-1" >
+        <div class="md-form">
+            <input type="text" class="input-alternate" placeholder="Assigned To" value="{{ Assigend_To }}" >
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 offset-1" >
+        <div class="md-form">
+
+            <input type="text" class="input-alternate" placeholder="Customer Order Number" readonly>
+        </div>
+    </div>
+
+    <div class="col-sm-2 offset-2" >
+        <div class="md-form">
+            <input type="text" class="input-alternate" placeholder="Order Date" readonly>
+
+        </div>
+    </div>
+    <div class="col-sm-2 offset-1" >
+        <div class="md-form">
+
+            <input type="text" class="input-alternate" placeholder="Dispatch Time"  >
+
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+
+<hr>
+
+<!--Table goes here-->
+
+
+
+
+
+<div class="col-sm-10 offset-1">
+
+    <div id="table" class="table-editable">
+        <span class="table-add glyphicon glyphicon-plus"></span>
+        <table class="table">
+            <tr class ="ali">
+                <th>Enquiry Number</th>
+                <th>Car Name</th>
+                <th>Part Name</th>
+                <th>Unit Price</th>
+                <th>No Of Units</th>
+                <th>Amount Payable By Garage</th>
+
+            </tr>
+
+            {% for i in data %}
+            <tr>
+                <td> {{ i.Enquiry_Number }} </td>
+                <td> {{ i.Car_Make }}{{ i.Car_Model }} </td>
+
+                <td> {{ i.Part_Name }} </td>
+                <td> {{ i.Carcrew_Unit_Selling_Price }} </td>
+                <td> {{ i.No_Of_Units }} </td>
+                <td> {{ i.Amount_Payable_by_Garage }} </td>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6 offset-1" >
+        <div class="md-form">
+            <input type="text" class="input-alternate" placeholder="Comments" size="">
+        </div>
+    </div>
+    <div class="col-sm-2 offset-1" >
+        <div class="md-form">
+            <input type="datetime-local" class="input-alternate" placeholder="Deliver Time" >
+
+        </div>
+    </div>
+
+</div>
+<div class="row">
+
+
+    <div class="col-sm-2 offset-1" >
+        <div class="md-form">
+            <input type="text" class="input-alternate" placeholder="Delivered By" >
+
+        </div>
+    </div>
+    <div class="col-sm-3 offset-1" >
+        <div class="md-form">
+
+            <input type="text" class="input-alternate" placeholder="Signature">
+        </div>
+    </div>
+
+
+</div>
+<br>
+<div class="row">
+
+
+    <div class="col-sm-2 offset-1" >
+        <div class="md-form">
+            <input type="text" class="input-alternate" placeholder="Delivered To" >
+
+        </div>
+    </div>
+    <div class="col-sm-3 offset-1" >
+        <div class="md-form">
+
+            <input type="text" class="input-alternate" placeholder="Signature">
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+<button id="export-btn" class="btn btn-primary">Download PDF</button>
+<p id="export"></p>
+</div>
+<!--Table end Here-->
+
+
+
+
+<!--Footer-->
+<footer class="page-footer blue center-on-small-only">
+
+    <!--Footer Links-->
+
+    <!--/.Footer Links-->
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            © 2017 Copyright: <a href="https://www.MDBootstrap.com"> Carcrew Technology Pvt Ltd </a>
+
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+
+<!--/Start your project here-->
+
+<!-- /Start your project here-->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+{#    <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>#}
+<link href="{% static "js/jquery-3.1.1.min.js" %}" rel="stylesheet">
+<!-- Bootstrap tooltips -->
+{#    <script type="text/javascript" src="js/tether.min.js"></script>#}
+<link href="{% static "js/tether.min.js" %}" rel="stylesheet">
+<!-- Bootstrap core JavaScript -->
+{#    <script type="text/javascript" src="js/bootstrap.min.js"></script>#}
+<link href="{% static "js/bootstrap.min.js" %}" rel="stylesheet">
+<!-- MDB core JavaScript -->
+{#    <script type="text/javascript" src="js/mdb.min.js"></script>#}
+<link href="{% static "js/mdb.min.js" %}" rel="stylesheet">
 </body>
+<script type="javascript">
+    var $TABLE = $('#table');
+    var $BTN = $('#export-btn');
+    var $EXPORT = $('#export');
+
+    $('.table-add').click(function () {
+        var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
+        $TABLE.find('table').append($clone);
+    });
+
+    $('.table-remove').click(function () {
+        $(this).parents('tr').detach();
+    });
+
+    $('.table-up').click(function () {
+        var $row = $(this).parents('tr');
+        if ($row.index() === 1) return; // Don't go above the header
+        $row.prev().before($row.get(0));
+    });
+
+    $('.table-down').click(function () {
+        var $row = $(this).parents('tr');
+        $row.next().after($row.get(0));
+    });
+
+    // A few jQuery helpers for exporting only
+    jQuery.fn.pop = [].pop;
+    jQuery.fn.shift = [].shift;
+
+    $BTN.click(function () {
+        var $rows = $TABLE.find('tr:not(:hidden)');
+        var headers = [];
+        var data = [];
+
+        // Get the headers (add special header logic here)
+        $($rows.shift()).find('th:not(:empty)').each(function () {
+            headers.push($(this).text().toLowerCase());
+        });
+
+        // Turn all existing rows into a loopable array
+        $rows.each(function () {
+            var $td = $(this).find('td');
+            var h = {};
+
+            // Use the headers from earlier to name our hash keys
+            headers.forEach(function (header, i) {
+                h[header] = $td.eq(i).text();
+            });
+
+            data.push(h);
+        });
+
+        // Output the result
+        $EXPORT.text(JSON.stringify(data));
+    });
+</script>
 </html>

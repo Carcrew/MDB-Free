@@ -120,56 +120,85 @@
     </nav>
 
     <!--Start your project here-->
-
-
-    <br>
-    <br>
+<br>
     <div class="row">
-        <div class="col-sm-4 offset-2" >
-            <div class="md-form">
-                <input type="text" class="input-alternate" placeholder="Enquiry Number" size="20">
-            </div>
-        </div>
-        <div class="col-sm-3 offset-1" >
-            <div class="md-form">
-
-                    <input type="text" class="input-alternate" placeholder="Dispatch Time" >
-
+        <form method="get">
+            <div class="col-sm-10 offset-1" >
+                <div class="md-form">
+                    <input type="text" class="input-alternate" name="Enquiry_Number" id="Enquiry_Number" placeholder="Enquiry Number" size="20">
                 </div>
-            </div>
-        </div>
-    <div class="row">
 
-        <div class="col-sm-4 offset-2" >
-            <div class="md-form">
-                <input type="text" class="input-alternate" placeholder="Garage Name" >
-
-            </div>
             </div>
             <div class="col-sm-3 offset-1" >
                 <div class="md-form">
-                    <input type="text" class="input-alternate" placeholder="Garage Number" >
-
+                    <button id="export-btn" class="btn btn-primary offset-3 id="onsubmit=""  >Generate Delivery Note</button>
                 </div>
             </div>
-        </div>
-    <div class="row">
-        <div class="col-sm-4 offset-2" >
-            <div class="md-form">
+        </form>
+    </div>
 
-                <input type="text" class="input-alternate" placeholder="Customer Order Number">
-            </div>
+    <div class="row">
+        <div class="col-sm-2 offset-2" >
+
+                <label>Enquiry Number</label>
+                <input type="text" class="input-alternate" placeholder="Enquiry Number" size="20">
+
         </div>
+        <div class="col-sm-2 offset-1" >
+
+            <label>Dispatch Time</label>
+                    <input type="text" class="input-alternate" placeholder="Dispatch Time" >
+
+
+            </div>
+        <div class="col-sm-2 offset-1" >
+
+            <label>Assign To:</label>
+            <input type="text" class="input-alternate" placeholder="Delivery Name" >
+
+
+        </div>
+        </div>
+    <br>
+    <div class="row">
 
         <div class="col-sm-2 offset-2" >
-            <div class="md-form">
-                <input type="date" class="input-alternate">
+            <label>Garage Name</label>
+                <input type="text" class="input-alternate" placeholder="Garage Name" >
+
 
             </div>
+            <div class="col-sm-2 offset-1" >
+                <label>Garage Number</label>
+                    <input type="text" class="input-alternate" placeholder="Garage Number" >
+
+
+            </div>
+        <div class="col-sm-2 offset-1" >
+
+            <label>Order Number</label>
+                <input type="text" class="input-alternate" placeholder="Customer Order Number">
+
+        </div>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-2 offset-2" >
+
+            <label>Delivery Date</label>
+                <input type="date" class="input-alternate" placeholder="Deliver Date">
+
+        </div>
+
+        <div class="col-sm-2 offset-1" >
+            <label>Serial Number</label>
+                <input type="text" class="input-alternate">
+
+
         </div>
     </div>
 
-    </div>
 
 <hr>
 
@@ -179,7 +208,7 @@
 
 
 
-<div class="col-sm-8 offset-2">
+<div class="col-sm-9 offset-2">
 
             <div id="table" class="table-editable">
                 <span class="table-add glyphicon glyphicon-plus"></span>
@@ -255,47 +284,39 @@
             </div>
 </div>
 
-        <div class="row">
+    <br>
+    <hr>
+    <div class="row">
+        <div class="col-sm-2 offset-2" >
 
-            <div class="col-sm-4 offset-1" >
-                <div class="md-form">
-                    <input type="text" class="input-alternate" placeholder="Garage Name" >
+            <label>Enquiry Number</label>
+            <input type="text" class="input-alternate" placeholder="Enquiry Number" size="20">
 
-                </div>
-            </div>
-            <div class="col-sm-4 offset-1" >
-                <div class="md-form">
-                    <input type="text" class="input-alternate" placeholder="Garage Number" >
-
-                </div>
-            </div>
         </div>
-        <div class="row">
-            <div class="col-sm-3 offset-1" >
-                <div class="md-form">
+        <div class="col-sm-2 offset-1" >
 
-                    <input type="text" class="input-alternate" placeholder="Customer Order Number">
-                </div>
-            </div>
-            <div class="col-sm-10 offset-1" >
-                <div class="md-form">
+            <label>Dispatch Time</label>
+            <input type="text" class="input-alternate" placeholder="Dispatch Time" >
 
-                </div>
-            </div>
-            <div class="col-sm-2 " >
-                <div class="md-form">
-                </div>
-            </div>
+
         </div>
-    <div class="row" id="ali">
-        <div class="col-sm-4 offset-1" >
-            <div class="md-form">
-                <input type="text" class="input-alternate" placeholder="Deliver Boy Name Name" >
+        <div class="col-sm-2 offset-1" >
 
-            </div>
+            <label>Assign To:</label>
+            <input type="text" class="input-alternate" placeholder="Delivery Name" >
+
+
         </div>
-        <div class="col-sm-4 offset-1" >
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-2 offset-2" >
 
+            <label>Deliver Boy Name</label>
+            <input type="text" class="input-alternate" placeholder="Deliver Boy Name " >
+
+        </div>
+        <div class="col-sm-2 offset-1" >
 
             <p>Delivery Guy Signature</p>
             <div id="sig"></div>
@@ -303,19 +324,23 @@
             </p>
 
 
+        </div>
+        <div class="col-sm-2 offset-1" >
+
+            <label>Time</label>
+            <input type="time" class="input-alternate" placeholder="Delivery Name" >
 
 
         </div>
     </div>
-    <div class="row" >
-        <div class="col-sm-4 offset-1" >
-            <div class="md-form">
-                <input type="text" class="input-alternate" placeholder="Garage Name" >
+    <div class="row">
+        <div class="col-sm-2 offset-2" >
 
-            </div>
+            <label>Garge Name</label>
+            <input type="text" class="input-alternate" placeholder="Garage Name" >
+
         </div>
-        <div class="col-sm-4 offset-1" >
-
+        <div class="col-sm-2 offset-1" >
 
             <p>Garage Signature</p>
             <div id="sig1"></div>
@@ -323,9 +348,49 @@
             </p>
 
 
+        </div>
+        <div class="col-sm-2 offset-1" >
+
+            <label>Time</label>
+            <input type="time" class="input-alternate" placeholder="Delivery Name" >
 
 
         </div>
+    </div>
+<br>
+<hr>
+
+    <div class="row">
+        <div class="col-sm-2 offset-2" >
+
+            <button id="export-btn" class="btn btn-primary">Download PDF</button>
+
+        </div>
+        <div class="col-sm-2 offset-1" >
+
+            <form>
+
+                <div class="form-group">
+                    <label for="exampleSelect1">Enter Email Address</label>
+                    <select class="form-control" id="exampleSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Send Email</button>
+                </div>
+
+
+
+
+
+            </form>
+
+
+        </div>
+
     </div>
 
 
@@ -346,7 +411,8 @@
 
 
 
-        <button id="export-btn" class="btn btn-primary">Download PDF</button>
+
+
         <p id="export"></p>
     </div>
     <!--Table end Here-->
